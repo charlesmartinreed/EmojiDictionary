@@ -48,7 +48,13 @@
                             <outlet property="delegate" destination="X24-qX-keF" id="UVn-rA-632"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="IQn-IZ-w53"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="IQn-IZ-w53">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="FSl-rS-06g">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="X24-qX-keF" id="q5a-R4-ZDW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y7Z-6y-78u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

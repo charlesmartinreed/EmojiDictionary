@@ -13,12 +13,13 @@ class EmojiTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // navigationItem.leftBarButtonItem = editButtonItem
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -41,6 +42,9 @@ class EmojiTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
+        
+        //needed in order to allow cell reordering
+        cell.showsReorderControl = true
 
         //grab the model object
         let emoji = emojis[indexPath.row]
@@ -57,6 +61,23 @@ class EmojiTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let emoji = emojis[indexPath.row]
         print("\(emoji.symbol) \(indexPath)")
+    }
+    
+    //MARK:- @IBActions
+    @IBAction func editButtonTapped(_ sender: Any) {
+        
+        //put the table into edit mode
+        let tableViewEditingMode = tableView.isEditing
+        
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let movedEmoji = emojis.remove(at: sourceIndexPath.row)
+        emojis.insert(movedEmoji, at: destinationIndexPath.row)
+        tableView.reloadData()
+        
     }
     
     /*
