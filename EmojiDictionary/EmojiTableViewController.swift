@@ -6,6 +6,7 @@
 //  Copyright © 2018 Charles Martin Reed. All rights reserved.
 //
 
+//because we're using the tableViewController, we get the delegate and data source set to EmojiTableViewController automatically as well as the "free" code that comes with that
 import UIKit
 
 class EmojiTableViewController: UITableViewController {
@@ -50,8 +51,14 @@ class EmojiTableViewController: UITableViewController {
         
         return cell
     }
- 
 
+
+    //MARK:- Table view delegate methods
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let emoji = emojis[indexPath.row]
+        print("\(emoji.symbol) \(indexPath)")
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
