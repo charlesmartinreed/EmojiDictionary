@@ -62,6 +62,19 @@ class EmojiTableViewController: UITableViewController {
         print("\(emoji.symbol) \(indexPath)")
     }
     
+    //MARK:- Table view editing mode methods
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete //user can delete any row
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //remove from the emoji data model and remove row from tableView
+        if editingStyle == .delete {
+            emojis.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic) //indexPath because we need section AND row
+        }
+    }
+    
     //MARK:- @IBActions
     @IBAction func editButtonTapped(_ sender: Any) {
         
@@ -77,12 +90,6 @@ class EmojiTableViewController: UITableViewController {
         emojis.insert(movedEmoji, at: destinationIndexPath.row)
         tableView.reloadData()
         
-    }
-    
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        
-        //remove the ability to delete
-        return .none
     }
     
     /*

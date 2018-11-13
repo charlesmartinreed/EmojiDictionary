@@ -26,7 +26,7 @@ class Emoji {
 var emojis: [Emoji] = [
     Emoji(symbol: "😂", name: "Face With Tears of Joy", description: "A yellow face with a big grin", usage: "Laughter"),
     Emoji(symbol: "🤔", name: "Thinking Face", description: "A face deep in thought", usage: "Indicate thinking or deep thought"),
-    Emoji(symbol: "😅", name: "Grinnig Face With Sweat", description: "A grinning face with a single bead of forehead sweat", usage: "Used to indicate success and relief after a close call"),
+    Emoji(symbol: "😅", name: "Grinning Face With Sweat", description: "A grinning face with a single bead of forehead sweat", usage: "Used to indicate success and relief after a close call"),
     Emoji(symbol: "😍", name: "Smiling Face With Heart-Eyes", description: "A face with hearts instead of eyes.", usage: "Used as an expression of love"),
     Emoji(symbol: "🤟", name: "Love-You Gesture", description: "A raised pinky finger, index finger, and an extended thumb", usage: "The gesture for 'I Love You' in American Sign Language"),
     Emoji(symbol: "🐢", name: "Turtle", description:
